@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gayathre V - AI & Data Science Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+      min-height: 100vh;
+      padding: 3rem 1rem;
+      color: #1a202c;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 3rem 2.5rem;
+      border-radius: 20px;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #3b82f6, #06b6d4, #10b981);
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: #4a5568;
+      line-height: 1.8;
+      max-width: 800px;
+      margin-bottom: 1.5rem;
+    }
+
+    .resume-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      color: white;
+      padding: 0.9rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+      margin-top: 1rem;
+    }
+
+    .resume-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+      background: linear-gradient(135deg, #2563eb, #0891b2);
+    }
+
+    .resume-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .section-wrapper {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section-wrapper:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #2d3748;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 0.75rem;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #3b82f6, #06b6d4);
+      border-radius: 2px;
+    }
+
+    .edu-item {
+      padding: 1.5rem;
+      background: #f7fafc;
+      border-radius: 12px;
+      border-left: 4px solid #3b82f6;
+    }
+
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 0.75rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .edu-item h3 {
+      font-size: 1.4rem;
+      color: #2d3748;
+      font-weight: 700;
+    }
+
+    .date-badge {
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .location {
+      color: #718096;
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      font-style: italic;
+    }
+
+    .edu-item ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .edu-item li {
+      padding: 0.5rem 0;
+      color: #4a5568;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .edu-item li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #3b82f6;
+      font-weight: bold;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+      padding: 2rem;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #06b6d4);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: #3b82f6;
+      box-shadow: 0 15px 40px rgba(59, 130, 246, 0.3);
+    }
+
+    .project-card h3 {
+      font-size: 1.25rem;
+      color: #2d3748;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .project-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .project-card li {
+      padding: 0.6rem 0;
+      color: #4a5568;
+      line-height: 1.6;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .project-card li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #06b6d4;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .cert-item {
+      background: linear-gradient(135deg, #f7fafc, #e6fffa);
+      padding: 1.75rem;
+      border-radius: 12px;
+      border-left: 4px solid #38b2ac;
+    }
+
+    .cert-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 0.75rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .cert-item h3 {
+      font-size: 1.35rem;
+      color: #2d3748;
+      font-weight: 700;
+    }
+
+    .cert-item ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.75rem;
+    }
+
+    .cert-item li {
+      padding: 0.4rem 0;
+      color: #4a5568;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .cert-item li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #38b2ac;
+      font-weight: bold;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .skill-tag {
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      color: white;
+      padding: 0.7rem 1.3rem;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .skill-tag:hover {
+      transform: scale(1.1) rotate(2deg);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      color: white;
+    }
+
+    footer p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .footer-links a:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      header, .section-wrapper {
+        padding: 2rem 1.5rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .edu-header, .cert-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
+
+      .skills-container {
+        gap: 0.5rem;
+      }
+
+      .skill-tag {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Gayathre V</h1>
+      <p class="subtitle">
+        Data Science student with a strong foundation in machine learning, deep learning, and explainable AI. Passionate about developing innovative solutions that transform complex data into actionable insights through advanced analytics and neural networks.
+      </p>
+      <a href="./My%20Resume.pdf" class="resume-btn" download="Gayathre_V_Resume.pdf">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+        Download Resume
+      </a>
+    </header>
+
+    <div class="section-wrapper">
+      <h2>Education</h2>
+      <div class="edu-item">
+        <div class="edu-header">
+          <h3>Integrated M.Sc. in Data Science</h3>
+          <span class="date-badge">Sept 2022 – Present</span>
+        </div>
+        <p class="location">Amrita Vishwa Vidyapeetham, Coimbatore, India</p>
+        <ul>
+          <li>CGPA: 7.8 / 10.00</li>
+          <li>Core coursework in AI, Machine Learning, Deep Learning, Statistical Modeling, and Data Analytics</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-wrapper">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Multi-Class Tumor Classification via Knowledge Distillation</h3>
+          <ul>
+            <li>Implemented a multi-teacher–student knowledge distillation framework for efficient multi-class tumor classification</li>
+            <li>Achieved 99.4% classification accuracy while reducing model complexity</li>
+            <li><strong>Tools:</strong> Python, PyTorch/TensorFlow, OpenCV, Medical Image Processing Libraries</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <h3>Hybrid Explainable Intrusion Detection System</h3>
+          <ul>
+            <li>Developed a hybrid explainable IDS using feature intersection and multi-model ensembles for accurate TCP attack detection</li>
+            <li>Implemented interpretable machine learning techniques for cybersecurity applications</li>
+            <li><strong>Tools:</strong> Python, Pandas, NumPy, Scikit-learn, Explainable AI Libraries</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <h3>Alzheimer's Disease Classification Using MRI Images</h3>
+          <ul>
+            <li>Built hybrid deep learning ensembles for multiclass Alzheimer's disease stage classification from MRI scans</li>
+            <li>Applied transfer learning and ensemble methods for improved diagnostic accuracy</li>
+            <li><strong>Tools:</strong> Python, TensorFlow, Keras, CV, PyTorch, Hugging Face, Scikit-learn, NumPy, Pandas, OpenCV, Matplotlib, Seaborn</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <h3>Bias-Aware Toxicity Detection in Social Networks</h3>
+          <ul>
+            <li>Developed a bias-aware NLP pipeline to classify online comments as toxic or non-toxic using the Jigsaw Unintended Bias dataset</li>
+            <li>Designed a tri-hybrid modeling approach and evaluated performance using bias-sensitive fairness metrics</li>
+            <li><strong>Tools:</strong> Python, NLP Libraries, Deep Learning Frameworks, Scikit-learn</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-wrapper">
+      <h2>Certifications</h2>
+      <div class="cert-item">
+        <div class="cert-header">
+          <h3>Google Data Analytics Professional Certificate</h3>
+          <span class="date-badge">2024</span>
+        </div>
+        <p class="location">Coursera</p>
+        <ul>
+          <li>Data cleaning, exploratory data analysis, and SQL</li>
+          <li>Statistical analysis and data visualization</li>
+          <li>Hands-on projects with real-world datasets</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-wrapper">
+      <h2>Skills</h2>
+      <div class="skills-container">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">R</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">MATLAB</span>
+        <span class="skill-tag">PyTorch</span>
+        <span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">Keras</span>
+        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">Scikit-learn</span>
+        <span class="skill-tag">Hugging Face</span>
+        <span class="skill-tag">Machine Learning</span>
+        <span class="skill-tag">Deep Learning</span>
+        <span class="skill-tag">NLP</span>
+        <span class="skill-tag">Computer Vision</span>
+        <span class="skill-tag">Data Analysis</span>
+        <span class="skill-tag">AutoML</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Jupyter</span>
+        <span class="skill-tag">Matplotlib</span>
+        <span class="skill-tag">Seaborn</span>
+        <span class="skill-tag">OpenCV</span>
+        <span class="skill-tag">Leadership</span>
+        <span class="skill-tag">Public Speaking</span>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2026 Gayathre V | Built with curiosity</p>
+      <div class="footer-links">
+        <a href="https://github.com/yourusername">GitHub</a>
+        <a href="mailto:gayathrevaidya@gmail.com">Email</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
