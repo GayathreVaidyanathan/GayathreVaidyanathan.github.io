@@ -32,7 +32,6 @@
       overflow-x: hidden;
     }
 
-    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 1.4rem 5rem;
@@ -59,7 +58,6 @@
     }
     .nav-links a:hover { color: var(--navy); }
 
-    /* HERO */
     .hero {
       min-height: 100vh; display: flex; align-items: center;
       padding: 8rem 5rem 5rem; position: relative; overflow: hidden;
@@ -128,7 +126,6 @@
     }
     .btn-ghost:hover { border-color: var(--navy); background: var(--surface); }
 
-    /* SECTIONS */
     section { padding: 7rem 5rem; }
     section:nth-child(even) { background: var(--surface); }
     .section-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 4.5rem; }
@@ -144,7 +141,6 @@
     }
     .section-line { flex: 1; height: 1px; background: var(--border); }
 
-    /* EDUCATION */
     .edu-card {
       display: grid; grid-template-columns: 1fr auto;
       gap: 2rem; align-items: start; padding: 3rem;
@@ -171,7 +167,6 @@
       padding: 0.5rem 1.2rem; background: var(--teal); color: white;
     }
 
-    /* PROJECTS */
     .projects-list { display: flex; flex-direction: column; }
     .project-row {
       display: grid; grid-template-columns: 56px 1fr 40px;
@@ -216,8 +211,15 @@
       transition: all 0.3s; align-self: center; justify-self: end;
     }
     .project-row:hover .project-arrow { color: var(--accent); transform: translate(3px, -3px); }
+    .project-status-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+      letter-spacing: 0.08em; color: var(--accent2);
+      background: rgba(196, 135, 74, 0.1);
+      border: 1px solid rgba(196, 135, 74, 0.35);
+      padding: 0.28rem 0.75rem; margin-top: 0.6rem;
+    }
 
-    /* SKILLS */
     .skills-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
@@ -236,7 +238,6 @@
     .skill-item { font-size: 0.9rem; color: var(--text); font-weight: 300; }
     .skill-item::before { content: '— '; color: var(--border2); font-size: 0.8rem; }
 
-    /* CERTIFICATIONS */
     .cert-card {
       display: flex; justify-content: space-between; align-items: center;
       padding: 2.5rem 3rem; background: var(--surface2); border: 1px solid var(--border);
@@ -253,7 +254,6 @@
       color: var(--border2); font-weight: 700; letter-spacing: -0.05em; line-height: 1;
     }
 
-    /* FOOTER */
     footer {
       padding: 4rem 5rem; background: var(--navy);
       display: flex; justify-content: space-between; align-items: center;
@@ -269,7 +269,6 @@
     }
     .footer-links a:hover { color: #c8a96e; }
 
-    /* ANIMATIONS */
     @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
     .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -304,7 +303,6 @@
     <div class="hero-bg-shape"></div>
     <div class="hero-bg-shape2"></div>
     <div class="hero-dots">
-      <!-- 48 dots -->
       <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
@@ -399,11 +397,12 @@
       <div class="project-row reveal">
         <span class="project-num">04</span>
         <div class="project-content">
-          <h3 class="project-title">Alzheimer's Disease Classification via MRI</h3>
-          <p class="project-desc">Hybrid deep learning ensembles for multiclass Alzheimer's stage classification from MRI scans, combining transfer learning and ensemble methods for improved diagnostic accuracy.</p>
+          <h3 class="project-title">Alzheimer's Disease Detection via Hybrid Deep Learning Ensembles</h3>
+          <p class="project-desc">Research paper benchmarking hybrid CNN architectures for multi-class Alzheimer's stage classification across four heterogeneous MRI datasets (Kaggle, OASIS, Best Alzheimer, Hugging Face). Compares VGG16/19, ResNet50, DenseNet121, InceptionV3, EfficientNet, ConvNeXt, and hybrid models including Dual VGGNet, VGG19+ViT, and ResNet–DenseNet. Dual VGGNet achieves top accuracy (0.9981 on combined OASIS dataset). Incorporates Grad-CAM and Saliency Map XAI techniques to validate clinically meaningful focus on hippocampal atrophy and ventricular enlargement.</p>
           <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">PyTorch</span><span class="tag">Hugging Face</span><span class="tag">OpenCV</span>
+            <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">OpenCV</span><span class="tag">Grad-CAM</span><span class="tag">ViT</span><span class="tag">Transfer Learning</span><span class="tag">XAI</span><span class="tag">Medical Imaging</span>
           </div>
+          <span class="project-status-badge">📄 Research Paper — In Progress</span>
         </div>
         <span class="project-arrow">↗</span>
       </div>
@@ -415,6 +414,18 @@
           <div class="project-tags">
             <span class="tag">Python</span><span class="tag">NLP</span><span class="tag">Deep Learning</span><span class="tag">Scikit-learn</span><span class="tag">Fairness AI</span>
           </div>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+      <div class="project-row reveal">
+        <span class="project-num">06</span>
+        <div class="project-content">
+          <h3 class="project-title">Multilingual Hope Speech Detection via Stacked Transformer Ensemble</h3>
+          <p class="project-desc">Research paper proposing a stacked ensemble for cross-lingual hope speech detection, combining BiGRU + GloVe, XLM-RoBERTa, mBERT, and ELECTRA as base estimators with an XGBoost meta-learner. Incorporates back-translation augmentation (English→Czech→English), cross-lingual transfer learning (English→Tamil), and LIME explainability analysis — targeting 92%+ accuracy and 60%+ recall on the HopeEDI benchmark.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">XLM-RoBERTa</span><span class="tag">mBERT</span><span class="tag">ELECTRA</span><span class="tag">XGBoost</span><span class="tag">LIME</span><span class="tag">NLP</span><span class="tag">Transfer Learning</span>
+          </div>
+          <span class="project-status-badge">📄 Research Paper — In Progress</span>
         </div>
         <span class="project-arrow">↗</span>
       </div>
@@ -520,5 +531,3 @@
   </script>
 </body>
 </html>
-
-
