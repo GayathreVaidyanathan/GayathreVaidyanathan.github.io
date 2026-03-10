@@ -360,6 +360,8 @@
       <div class="section-line"></div>
     </div>
     <div class="projects-list">
+
+      <!-- Project 01 -->
       <div class="project-row reveal">
         <span class="project-num">01</span>
         <div class="project-content">
@@ -372,6 +374,8 @@
         </div>
         <span class="project-arrow">↗</span>
       </div>
+
+      <!-- Project 02 -->
       <div class="project-row reveal">
         <span class="project-num">02</span>
         <div class="project-content">
@@ -383,6 +387,8 @@
         </div>
         <span class="project-arrow">↗</span>
       </div>
+
+      <!-- Project 03 -->
       <div class="project-row reveal">
         <span class="project-num">03</span>
         <div class="project-content">
@@ -394,6 +400,8 @@
         </div>
         <span class="project-arrow">↗</span>
       </div>
+
+      <!-- Project 04 -->
       <div class="project-row reveal">
         <span class="project-num">04</span>
         <div class="project-content">
@@ -406,6 +414,8 @@
         </div>
         <span class="project-arrow">↗</span>
       </div>
+
+      <!-- Project 05 -->
       <div class="project-row reveal">
         <span class="project-num">05</span>
         <div class="project-content">
@@ -414,9 +424,12 @@
           <div class="project-tags">
             <span class="tag">Python</span><span class="tag">NLP</span><span class="tag">Deep Learning</span><span class="tag">Scikit-learn</span><span class="tag">Fairness AI</span>
           </div>
+          <span class="project-status-badge">📄 Research Paper — In Progress</span>
         </div>
         <span class="project-arrow">↗</span>
       </div>
+
+      <!-- Project 06 -->
       <div class="project-row reveal">
         <span class="project-num">06</span>
         <div class="project-content">
@@ -429,6 +442,49 @@
         </div>
         <span class="project-arrow">↗</span>
       </div>
+
+      <!-- Project 07 — NEW: Dungeon Master Engine -->
+      <div class="project-row reveal">
+        <span class="project-num">07</span>
+        <div class="project-content">
+          <h3 class="project-title">The Dungeon Master Engine</h3>
+          <p class="project-desc">Multi-agent agentic AI fantasy RPG built with Flask and Anthropic Claude. Five specialised agents — World Builder, Rules Keeper, Dungeon Master, NPC Voice, and Story Arc — run in a sequential pipeline where each agent reads all prior outputs before responding, producing deeply coherent real-time narrative via Server-Sent Events.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Anthropic Claude</span><span class="tag">Multi-Agent AI</span><span class="tag">SSE Streaming</span><span class="tag">SQLite</span><span class="tag">JavaScript</span>
+          </div>
+          <a href="https://github.com/GayathreVaidyanathan/dungeons-and-dragons" target="_blank" class="project-link-btn">View on GitHub ↗</a>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+
+      <!-- Project 08 — NEW: Hotel FRL -->
+      <div class="project-row reveal">
+        <span class="project-num">08</span>
+        <div class="project-content">
+          <h3 class="project-title">Hotel FRL — Federated Reinforcement Learning for Dynamic Pricing</h3>
+          <p class="project-desc">Production-grade Federated RL system where multiple hotels collaboratively learn optimal dynamic pricing strategies without sharing private guest data, occupancy records, or revenue figures. PPO agents (pure NumPy) trained via FedAvg across up to 8 heterogeneous hotel profiles, with optional differential privacy and a live in-browser React dashboard.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">PPO</span><span class="tag">Federated Learning</span><span class="tag">Reinforcement Learning</span><span class="tag">Differential Privacy</span><span class="tag">React</span>
+          </div>
+          <a href="https://github.com/GayathreVaidyanathan/hotel-frl-pricing" target="_blank" class="project-link-btn">View on GitHub ↗</a>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+
+      <!-- Project 09 — NEW: Tamil News Agentic AI -->
+      <div class="project-row reveal">
+        <span class="project-num">09</span>
+        <div class="project-content">
+          <h3 class="project-title">Tamil News Agentic AI</h3>
+          <p class="project-desc">Intelligent news scraping and summarisation system that collects Tamil regional news from multiple sources and delivers automated email digests twice daily. Supports both OpenAI GPT and Anthropic Claude for summarisation, with RSS feed parsing, scheduled delivery, and beautifully formatted HTML emails.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">Web Scraping</span><span class="tag">Anthropic Claude</span><span class="tag">OpenAI GPT</span><span class="tag">SMTP</span><span class="tag">Scheduler</span><span class="tag">RSS</span><span class="tag">Agentic AI</span>
+          </div>
+          <a href="https://github.com/GayathreVaidyanathan/tamil-news-agentic-ai-public" target="_blank" class="project-link-btn">View on GitHub ↗</a>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+
     </div>
   </section>
 
@@ -512,11 +568,11 @@
     <p class="footer-left"><span>Gayathre V</span> — Built with curiosity. © 2026</p>
     <div class="footer-links">
       <a href="https://github.com/GayathreVaidyanathan" target="_blank">GitHub</a>
-      <a href="mailto:gayathrevaidya@gmail.com">Email</a>
+      <a href="https://mail.google.com/mail/?view=cm&amp;to=gayathrevaidya@gmail.com" target="_blank">Email</a>
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 50); });
     const observer = new IntersectionObserver((entries) => {
@@ -524,10 +580,3 @@
         if (entry.isIntersecting) {
           setTimeout(() => entry.target.classList.add('visible'), i * 80);
           observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
-</body>
-</html>
