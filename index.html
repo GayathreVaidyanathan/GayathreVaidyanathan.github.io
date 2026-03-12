@@ -443,7 +443,7 @@
         <span class="project-arrow">↗</span>
       </div>
 
-      <!-- Project 07 — NEW: Dungeon Master Engine -->
+      <!-- Project 07 -->
       <div class="project-row reveal">
         <span class="project-num">07</span>
         <div class="project-content">
@@ -457,7 +457,7 @@
         <span class="project-arrow">↗</span>
       </div>
 
-      <!-- Project 08 — NEW: Hotel FRL -->
+      <!-- Project 08 -->
       <div class="project-row reveal">
         <span class="project-num">08</span>
         <div class="project-content">
@@ -471,7 +471,7 @@
         <span class="project-arrow">↗</span>
       </div>
 
-      <!-- Project 09 — NEW: Tamil News Agentic AI -->
+      <!-- Project 09 -->
       <div class="project-row reveal">
         <span class="project-num">09</span>
         <div class="project-content">
@@ -481,6 +481,21 @@
             <span class="tag">Python</span><span class="tag">Web Scraping</span><span class="tag">Anthropic Claude</span><span class="tag">OpenAI GPT</span><span class="tag">SMTP</span><span class="tag">Scheduler</span><span class="tag">RSS</span><span class="tag">Agentic AI</span>
           </div>
           <a href="https://github.com/GayathreVaidyanathan/tamil-news-agentic-ai-public" target="_blank" class="project-link-btn">View on GitHub ↗</a>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+
+      <!-- Project 10 -->
+      <div class="project-row reveal">
+        <span class="project-num">10</span>
+        <div class="project-content">
+          <h3 class="project-title">Telco Customer Churn Prediction Dashboard</h3>
+          <p class="project-desc">End-to-end ML pipeline predicting telecom customer churn with 84%+ ROC-AUC. Trained XGBoost, LightGBM, Random Forest, and ensemble models on SMOTE-balanced data with 12 engineered features. Interactive Streamlit dashboard with real-time SHAP explainability, counterfactual what-if analysis, confidence intervals, ROC curve comparison, and an industry-standard model card.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">LightGBM</span><span class="tag">SMOTE</span><span class="tag">SHAP</span><span class="tag">Streamlit</span><span class="tag">Explainable AI</span>
+          </div>
+          <a href="https://github.com/GayathreVaidyanathan/telco-churn-prediction" target="_blank" class="project-link-btn">View on GitHub ↗</a>
+          <a href="https://customer-churn-prediction-dt5z6zzhrsf2kjs3ccqgjh.streamlit.app/" target="_blank" class="project-link-btn" style="margin-left: 1.25rem;">Live Demo ↗</a>
         </div>
         <span class="project-arrow">↗</span>
       </div>
@@ -525,6 +540,7 @@
         <p class="skill-group-label">Web & Cloud</p>
         <div class="skill-items">
           <span class="skill-item">Flask</span>
+          <span class="skill-item">Streamlit</span>
           <span class="skill-item">Azure App Service</span>
           <span class="skill-item">Azure Blob Storage</span>
           <span class="skill-item">Azure SQL</span>
@@ -572,7 +588,6 @@
     </div>
   </footer>
 
-
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 50); });
@@ -586,7 +601,6 @@
       });
     }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
 
-    // Immediately reveal elements already in viewport on page load
     document.querySelectorAll('.reveal').forEach(el => {
       const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight) {
