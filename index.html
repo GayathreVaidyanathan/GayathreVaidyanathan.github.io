@@ -7,288 +7,104 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f5f0eb;
-      --bg2: #ede7df;
-      --surface: #ffffff;
-      --surface2: #faf7f4;
-      --border: #d9cfc4;
-      --border2: #c4b9aa;
-      --navy: #1c2b4a;
-      --navy2: #253660;
-      --accent: #8b5e3c;
-      --accent2: #c4874a;
-      --teal: #2e6b7a;
-      --text: #1c2b4a;
-      --muted: #6b7280;
-      --dim: #9ca3af;
+      --bg: #f5f0eb; --bg2: #ede7df; --surface: #ffffff; --surface2: #faf7f4;
+      --border: #d9cfc4; --border2: #c4b9aa; --navy: #1c2b4a; --navy2: #253660;
+      --accent: #8b5e3c; --accent2: #c4874a; --teal: #2e6b7a;
+      --text: #1c2b4a; --muted: #6b7280; --dim: #9ca3af;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 1.4rem 5rem;
-      display: flex; justify-content: space-between; align-items: center;
-      transition: all 0.4s ease;
-    }
-    nav.scrolled {
-      background: rgba(245, 240, 235, 0.95);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 2px 20px rgba(28, 43, 74, 0.06);
-    }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem; font-weight: 700;
-      color: var(--navy); letter-spacing: 0.04em;
-    }
+    body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.4rem 5rem; display: flex; justify-content: space-between; align-items: center; transition: all 0.4s ease; }
+    nav.scrolled { background: rgba(245, 240, 235, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); box-shadow: 0 2px 20px rgba(28, 43, 74, 0.06); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 700; color: var(--navy); letter-spacing: 0.04em; }
     .nav-logo span { color: var(--accent); }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
-      color: var(--muted); text-decoration: none; letter-spacing: 0.1em;
-      text-transform: uppercase; transition: color 0.3s;
-    }
+    .nav-links a { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--muted); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; }
     .nav-links a:hover { color: var(--navy); }
-
-    .hero {
-      min-height: 100vh; display: flex; align-items: center;
-      padding: 8rem 5rem 5rem; position: relative; overflow: hidden;
-    }
-    .hero-bg-shape {
-      position: absolute; top: -100px; right: -200px;
-      width: 700px; height: 700px; border-radius: 50%;
-      background: radial-gradient(circle at 40% 40%, #ddd0bf 0%, #e8ddd3 40%, transparent 70%);
-      opacity: 0.6; pointer-events: none;
-    }
-    .hero-bg-shape2 {
-      position: absolute; bottom: -80px; left: -100px;
-      width: 400px; height: 400px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(46,107,122,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-dots {
-      position: absolute; top: 120px; right: 5rem;
-      display: grid; grid-template-columns: repeat(8, 1fr); gap: 18px;
-      opacity: 0.25; pointer-events: none;
-    }
-    .hero-dots span {
-      width: 4px; height: 4px; border-radius: 50%;
-      background: var(--navy); display: block;
-    }
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 5rem 5rem; position: relative; overflow: hidden; }
+    .hero-bg-shape { position: absolute; top: -100px; right: -200px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #ddd0bf 0%, #e8ddd3 40%, transparent 70%); opacity: 0.6; pointer-events: none; }
+    .hero-bg-shape2 { position: absolute; bottom: -80px; left: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(46,107,122,0.08) 0%, transparent 70%); pointer-events: none; }
+    .hero-dots { position: absolute; top: 120px; right: 5rem; display: grid; grid-template-columns: repeat(8, 1fr); gap: 18px; opacity: 0.25; pointer-events: none; }
+    .hero-dots span { width: 4px; height: 4px; border-radius: 50%; background: var(--navy); display: block; }
     .hero-content { position: relative; max-width: 750px; }
-    .hero-label {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
-      letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
-      margin-bottom: 1.75rem; display: flex; align-items: center; gap: 1rem;
-      opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards;
-    }
+    .hero-label { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.75rem; display: flex; align-items: center; gap: 1rem; opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; }
     .hero-label::before { content: ''; width: 36px; height: 2px; background: var(--accent); display: block; }
-    .hero-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.8rem, 8vw, 7.5rem);
-      font-weight: 700; line-height: 0.95; letter-spacing: -0.02em;
-      color: var(--navy); margin-bottom: 1.75rem;
-      opacity: 0; animation: fadeUp 0.8s ease 0.4s forwards;
-    }
+    .hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.8rem, 8vw, 7.5rem); font-weight: 700; line-height: 0.95; letter-spacing: -0.02em; color: var(--navy); margin-bottom: 1.75rem; opacity: 0; animation: fadeUp 0.8s ease 0.4s forwards; }
     .hero-name em { font-style: italic; color: var(--accent); }
-    .hero-bio {
-      font-size: 1.05rem; line-height: 1.85; color: var(--muted);
-      max-width: 500px; font-weight: 300; margin-bottom: 3rem;
-      opacity: 0; animation: fadeUp 0.8s ease 0.6s forwards;
-    }
-    .hero-actions {
-      display: flex; gap: 1.25rem; align-items: center;
-      opacity: 0; animation: fadeUp 0.8s ease 0.8s forwards;
-    }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      background: var(--navy); color: #fff; padding: 0.9rem 2rem;
-      text-decoration: none; font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-      transition: all 0.3s ease; border: 2px solid var(--navy);
-    }
+    .hero-bio { font-size: 1.05rem; line-height: 1.85; color: var(--muted); max-width: 500px; font-weight: 300; margin-bottom: 3rem; opacity: 0; animation: fadeUp 0.8s ease 0.6s forwards; }
+    .hero-actions { display: flex; gap: 1.25rem; align-items: center; opacity: 0; animation: fadeUp 0.8s ease 0.8s forwards; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--navy); color: #fff; padding: 0.9rem 2rem; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.3s ease; border: 2px solid var(--navy); }
     .btn-primary:hover { background: var(--navy2); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(28,43,74,0.2); }
-    .btn-ghost {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      color: var(--navy); text-decoration: none;
-      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      border: 2px solid var(--border2); padding: 0.9rem 2rem;
-      transition: all 0.3s;
-    }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--navy); text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid var(--border2); padding: 0.9rem 2rem; transition: all 0.3s; }
     .btn-ghost:hover { border-color: var(--navy); background: var(--surface); }
-
     section { padding: 7rem 5rem; }
     section:nth-child(even) { background: var(--surface); }
     .section-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 4.5rem; }
-    .section-num {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
-      color: var(--accent); letter-spacing: 0.15em; background: var(--bg2);
-      border: 1px solid var(--border); padding: 0.3rem 0.7rem;
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700;
-      color: var(--navy); letter-spacing: -0.01em;
-    }
+    .section-num { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent); letter-spacing: 0.15em; background: var(--bg2); border: 1px solid var(--border); padding: 0.3rem 0.7rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; color: var(--navy); letter-spacing: -0.01em; }
     .section-line { flex: 1; height: 1px; background: var(--border); }
-
-    .edu-card {
-      display: grid; grid-template-columns: 1fr auto;
-      gap: 2rem; align-items: start; padding: 3rem;
-      background: var(--surface2); border: 1px solid var(--border);
-      border-top: 4px solid var(--navy); position: relative;
-      transition: box-shadow 0.3s;
-    }
+    .edu-card { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start; padding: 3rem; background: var(--surface2); border: 1px solid var(--border); border-top: 4px solid var(--navy); position: relative; transition: box-shadow 0.3s; }
     .edu-card:hover { box-shadow: 0 12px 40px rgba(28,43,74,0.1); }
-    .edu-degree {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.7rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem;
-    }
+    .edu-degree { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
     .edu-school { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; font-weight: 300; }
     .edu-details { display: flex; gap: 3rem; flex-wrap: wrap; }
     .edu-detail { display: flex; flex-direction: column; gap: 0.3rem; }
-    .edu-detail-label {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
-      letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim);
-    }
+    .edu-detail-label { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); }
     .edu-detail-value { font-size: 0.95rem; color: var(--text); font-weight: 500; }
-    .edu-badge {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 0.5rem 1.2rem; background: var(--teal); color: white;
-    }
+    .edu-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.5rem 1.2rem; background: var(--teal); color: white; }
+    .domain-group { margin-bottom: 4rem; }
+    .domain-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; padding-bottom: 1rem; border-bottom: 2px solid var(--border); }
+    .domain-icon { font-size: 1.1rem; }
+    .domain-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: var(--navy); }
 
     .projects-list { display: flex; flex-direction: column; }
-    .project-row {
-      display: grid; grid-template-columns: 56px 1fr 40px;
-      align-items: start; gap: 2.5rem; padding: 2.5rem 0;
-      border-bottom: 1px solid var(--border); transition: all 0.3s ease; position: relative;
-    }
-    .project-row::before {
-      content: ''; position: absolute; left: -5rem; right: -5rem; top: 0; bottom: 0;
-      background: var(--surface2); opacity: 0; transition: opacity 0.3s; z-index: -1;
-    }
+    .project-row { display: grid; grid-template-columns: 56px 1fr 40px; align-items: start; gap: 2.5rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); transition: all 0.3s ease; position: relative; }
+    .project-row::before { content: ''; position: absolute; left: -5rem; right: -5rem; top: 0; bottom: 0; background: var(--surface2); opacity: 0; transition: opacity 0.3s; z-index: -1; }
     .project-row:hover::before { opacity: 1; }
-    .project-num {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
-      color: var(--dim); padding-top: 0.4rem; letter-spacing: 0.05em;
-    }
-    .project-title {
-      font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
-      font-weight: 700; color: var(--navy); margin-bottom: 0.7rem; transition: color 0.3s;
-    }
+    .project-num { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--dim); padding-top: 0.4rem; letter-spacing: 0.05em; }
+    .project-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--navy); margin-bottom: 0.7rem; transition: color 0.3s; }
     .project-row:hover .project-title { color: var(--accent); }
-    .project-desc {
-      color: var(--muted); font-size: 0.9rem; line-height: 1.75;
-      max-width: 680px; margin-bottom: 1rem; font-weight: 300;
-    }
+    .project-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.75; max-width: 680px; margin-bottom: 1rem; font-weight: 300; }
     .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem; }
-    .tag {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
-      letter-spacing: 0.06em; color: var(--muted); background: var(--bg2);
-      border: 1px solid var(--border); padding: 0.25rem 0.7rem; transition: all 0.3s;
-    }
+    .tag { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.06em; color: var(--muted); background: var(--bg2); border: 1px solid var(--border); padding: 0.25rem 0.7rem; transition: all 0.3s; }
     .project-row:hover .tag { border-color: var(--border2); color: var(--text); }
-    .project-link-btn {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal);
-      text-decoration: none; border-bottom: 1px solid var(--teal);
-      padding-bottom: 1px; margin-top: 0.5rem; transition: all 0.3s;
-    }
+    .project-link-btn { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); text-decoration: none; border-bottom: 1px solid var(--teal); padding-bottom: 1px; margin-top: 0.5rem; transition: all 0.3s; }
     .project-link-btn:hover { color: var(--accent); border-color: var(--accent); }
-    .project-arrow {
-      font-size: 1.2rem; color: var(--border2); padding-top: 0.3rem;
-      transition: all 0.3s; align-self: center; justify-self: end;
-    }
+    .project-arrow { font-size: 1.2rem; color: var(--border2); padding-top: 0.3rem; transition: all 0.3s; align-self: center; justify-self: end; }
     .project-row:hover .project-arrow { color: var(--accent); transform: translate(3px, -3px); }
-    .project-status-badge {
-      display: inline-block;
-      font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
-      letter-spacing: 0.08em; color: var(--accent2);
-      background: rgba(196, 135, 74, 0.1);
-      border: 1px solid rgba(196, 135, 74, 0.35);
-      padding: 0.28rem 0.75rem; margin-top: 0.6rem;
-    }
-
-    .skills-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-    .skill-group {
-      background: var(--surface2); border: 1px solid var(--border);
-      padding: 2rem 2rem; transition: all 0.3s; border-top: 3px solid transparent;
-    }
+    .project-status-badge { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; color: var(--accent2); background: rgba(196, 135, 74, 0.1); border: 1px solid rgba(196, 135, 74, 0.35); padding: 0.28rem 0.75rem; margin-top: 0.6rem; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .skill-group { background: var(--surface2); border: 1px solid var(--border); padding: 2rem 2rem; transition: all 0.3s; border-top: 3px solid transparent; }
     .skill-group:hover { border-top-color: var(--navy); box-shadow: 0 8px 24px rgba(28,43,74,0.08); }
-    .skill-group-label {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
-      letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);
-      margin-bottom: 1.2rem;
-    }
+    .skill-group-label { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
     .skill-items { display: flex; flex-direction: column; gap: 0.5rem; }
     .skill-item { font-size: 0.9rem; color: var(--text); font-weight: 300; }
     .skill-item::before { content: '— '; color: var(--border2); font-size: 0.8rem; }
-
-    .cert-card {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 2.5rem 3rem; background: var(--surface2); border: 1px solid var(--border);
-      border-left: 4px solid var(--teal); gap: 2rem; flex-wrap: wrap; transition: box-shadow 0.3s;
-    }
+    .cert-card { display: flex; justify-content: space-between; align-items: center; padding: 2.5rem 3rem; background: var(--surface2); border: 1px solid var(--border); border-left: 4px solid var(--teal); gap: 2rem; flex-wrap: wrap; transition: box-shadow 0.3s; }
     .cert-card:hover { box-shadow: 0 8px 30px rgba(28,43,74,0.1); }
-    .cert-name {
-      font-family: 'Cormorant Garamond', serif; font-size: 1.35rem;
-      font-weight: 700; color: var(--navy); margin-bottom: 0.4rem;
-    }
+    .cert-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
     .cert-issuer { color: var(--muted); font-size: 0.88rem; font-weight: 300; }
-    .cert-year {
-      font-family: 'Cormorant Garamond', serif; font-size: 3rem;
-      color: var(--border2); font-weight: 700; letter-spacing: -0.05em; line-height: 1;
-    }
-
-    footer {
-      padding: 4rem 5rem; background: var(--navy);
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 2rem;
-    }
+    .cert-year { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--border2); font-weight: 700; letter-spacing: -0.05em; line-height: 1; }
+    footer { padding: 4rem 5rem; background: var(--navy); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
     .footer-left { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(255,255,255,0.6); }
     .footer-left span { color: #c8a96e; }
     .footer-links { display: flex; gap: 2rem; }
-    .footer-links a {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s;
-    }
+    .footer-links a { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s; }
     .footer-links a:hover { color: #c8a96e; }
-
     @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
     .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-
     @media (max-width: 768px) {
-      nav { padding: 1.25rem 2rem; }
-      .nav-links { display: none; }
-      .hero { padding: 7rem 2rem 4rem; }
-      section { padding: 5rem 2rem; }
-      footer { padding: 3rem 2rem; }
+      nav { padding: 1.25rem 2rem; } .nav-links { display: none; } .hero { padding: 7rem 2rem 4rem; }
+      section { padding: 5rem 2rem; } footer { padding: 3rem 2rem; }
       .edu-card { grid-template-columns: 1fr; padding: 2rem; }
-      .project-row { grid-template-columns: 40px 1fr; }
-      .project-arrow { display: none; }
-      .cert-card { padding: 2rem; }
-      .hero-dots { display: none; }
+      .project-row { grid-template-columns: 40px 1fr; } .project-arrow { display: none; }
+      .cert-card { padding: 2rem; } .hero-dots { display: none; }
     }
   </style>
 </head>
 <body>
-
   <nav id="nav">
     <div class="nav-logo">G<span>.</span>V</div>
     <ul class="nav-links">
@@ -300,16 +116,8 @@
   </nav>
 
   <section class="hero" id="home">
-    <div class="hero-bg-shape"></div>
-    <div class="hero-bg-shape2"></div>
-    <div class="hero-dots">
-      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
+    <div class="hero-bg-shape"></div><div class="hero-bg-shape2"></div>
+    <div class="hero-dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
     <div class="hero-content">
       <p class="hero-label">Data Science &amp; AI</p>
       <h1 class="hero-name">Gayathre<br><em>Vaidyanathan</em></h1>
@@ -325,28 +133,15 @@
   </section>
 
   <section id="education">
-    <div class="section-header reveal">
-      <span class="section-num">01</span>
-      <h2 class="section-title">Education</h2>
-      <div class="section-line"></div>
-    </div>
+    <div class="section-header reveal"><span class="section-num">01</span><h2 class="section-title">Education</h2><div class="section-line"></div></div>
     <div class="edu-card reveal">
       <div>
         <h3 class="edu-degree">Integrated M.Sc. in Data Science</h3>
         <p class="edu-school">Amrita Vishwa Vidyapeetham, Coimbatore, India</p>
         <div class="edu-details">
-          <div class="edu-detail">
-            <span class="edu-detail-label">CGPA</span>
-            <span class="edu-detail-value">7.8 / 10.00</span>
-          </div>
-          <div class="edu-detail">
-            <span class="edu-detail-label">Duration</span>
-            <span class="edu-detail-value">Sept 2022 – Present</span>
-          </div>
-          <div class="edu-detail">
-            <span class="edu-detail-label">Focus</span>
-            <span class="edu-detail-value">AI · ML · Deep Learning · Statistical Modelling</span>
-          </div>
+          <div class="edu-detail"><span class="edu-detail-label">CGPA</span><span class="edu-detail-value">7.8 / 10.00</span></div>
+          <div class="edu-detail"><span class="edu-detail-label">Duration</span><span class="edu-detail-value">Sept 2022 – Present</span></div>
+          <div class="edu-detail"><span class="edu-detail-label">Focus</span><span class="edu-detail-value">AI · ML · Deep Learning · Statistical Modelling</span></div>
         </div>
       </div>
       <span class="edu-badge">In Progress</span>
@@ -354,228 +149,98 @@
   </section>
 
   <section id="projects">
-    <div class="section-header reveal">
-      <span class="section-num">02</span>
-      <h2 class="section-title">Projects</h2>
-      <div class="section-line"></div>
+    <div class="section-header reveal"><span class="section-num">02</span><h2 class="section-title">Projects</h2><div class="section-line"></div></div>
+    <!-- ── GROUP 1: Agentic & LLM Systems ── -->
+    <div class="domain-group">
+      <div class="domain-header reveal">
+        <span class="domain-icon">🤖</span>
+        <h3 class="domain-title">Agentic &amp; LLM Systems</h3>
+        
+      </div>
+      <div class="projects-list">
+        <div class="project-row reveal"><span class="project-num">01</span><div class="project-content"><h3 class="project-title">RepoMind — AI-Powered Code Intelligence</h3><p class="project-desc">Point at any public GitHub repository and instantly chat with it in plain English, detect bugs and security vulnerabilities, map file dependencies via AST analysis, and auto-generate professional documentation. Built on a full RAG pipeline — semantic chunking, local embeddings (all-MiniLM-L6-v2), ChromaDB vector store, and LLaMA 3.3 70B via Groq for zero-cost inference.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">RAG</span><span class="tag">LLaMA 3.3 70B</span><span class="tag">ChromaDB</span><span class="tag">Groq</span><span class="tag">Sentence Transformers</span><span class="tag">AST Analysis</span><span class="tag">Streamlit</span><span class="tag">GitPython</span></div><a href="https://github.com/GayathreVaidyanathan/repo-mind" target="_blank" class="project-link-btn">View on GitHub ↗</a><a href="https://repo-mind-ffmulxnegnpmtmr9f4tqtb.streamlit.app/" target="_blank" class="project-link-btn" style="margin-left:1.25rem;">Live Demo ↗</a></div><span class="project-arrow">↗</span></div>
+
+        <div class="project-row reveal"><span class="project-num">02</span><div class="project-content"><h3 class="project-title">Tamil News Agentic AI</h3><p class="project-desc">Intelligent news scraping and summarisation system that collects Tamil regional news from multiple sources and delivers automated email digests twice daily. Powered by Groq (LLaMA 3.3 70B) for summarisation, with RSS feed parsing, scheduled delivery, and beautifully formatted HTML emails.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">Web Scraping</span><span class="tag">Groq</span><span class="tag">LLaMA 3.3 70B</span><span class="tag">SMTP</span><span class="tag">Scheduler</span><span class="tag">RSS</span><span class="tag">Agentic AI</span></div><a href="https://github.com/GayathreVaidyanathan/tamil-news-agentic-ai-public" target="_blank" class="project-link-btn">View on GitHub ↗</a></div><span class="project-arrow">↗</span></div>
+
+        <div class="project-row reveal"><span class="project-num">03</span><div class="project-content"><h3 class="project-title">The Dungeon Master Engine</h3><p class="project-desc">Multi-agent agentic AI fantasy RPG built with Flask and Anthropic Claude. Five specialised agents — World Builder, Rules Keeper, Dungeon Master, NPC Voice, and Story Arc — run in a sequential pipeline where each agent reads all prior outputs before responding, producing deeply coherent real-time narrative via Server-Sent Events.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Anthropic Claude</span><span class="tag">Multi-Agent AI</span><span class="tag">SSE Streaming</span><span class="tag">SQLite</span><span class="tag">JavaScript</span></div><a href="https://github.com/GayathreVaidyanathan/dungeons-and-dragons" target="_blank" class="project-link-btn">View on GitHub ↗</a></div><span class="project-arrow">↗</span></div>
+      </div>
     </div>
-    <div class="projects-list">
 
-      <!-- Project 01 -->
-      <div class="project-row reveal">
-        <span class="project-num">01</span>
-        <div class="project-content">
-          <h3 class="project-title">Cloud-Based Library Management System</h3>
-          <p class="project-desc">Full-stack web application for library operations — book borrowing, returns, automated fine calculation, and student management with role-based access control. Deployed on Azure App Service with a real-time admin analytics dashboard.</p>
-          <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Azure App Service</span><span class="tag">Azure Blob Storage</span><span class="tag">Azure SQL</span><span class="tag">Flask-Mail</span>
-          </div>
-          <a href="https://github.com/GayathreVaidyanathan/library-management-system" target="_blank" class="project-link-btn">View on GitHub ↗</a>
-        </div>
-        <span class="project-arrow">↗</span>
+    <!-- ── GROUP 2: Applied ML & Data Science ── -->
+    <div class="domain-group">
+      <div class="domain-header reveal">
+        <span class="domain-icon">📊</span>
+        <h3 class="domain-title">Applied ML &amp; Data Science</h3>
+        
       </div>
+      <div class="projects-list">
+        <div class="project-row reveal"><span class="project-num">04</span><div class="project-content"><h3 class="project-title">Telco Customer Churn Prediction Dashboard</h3><p class="project-desc">End-to-end ML pipeline predicting telecom customer churn with 84%+ ROC-AUC. Trained XGBoost, LightGBM, Random Forest, and ensemble models on SMOTE-balanced data with 12 engineered features. Interactive Streamlit dashboard with real-time SHAP explainability, counterfactual what-if analysis, confidence intervals, ROC curve comparison, and an industry-standard model card.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">LightGBM</span><span class="tag">SMOTE</span><span class="tag">SHAP</span><span class="tag">Streamlit</span><span class="tag">Explainable AI</span></div><a href="https://github.com/GayathreVaidyanathan/telco-churn-prediction" target="_blank" class="project-link-btn">View on GitHub ↗</a><a href="https://customer-churn-prediction-dt5z6zzhrsf2kjs3ccqgjh.streamlit.app/" target="_blank" class="project-link-btn" style="margin-left:1.25rem;">Live Demo ↗</a></div><span class="project-arrow">↗</span></div>
 
-      <!-- Project 02 -->
-      <div class="project-row reveal">
-        <span class="project-num">02</span>
-        <div class="project-content">
-          <h3 class="project-title">Multi-Class Tumor Classification via Knowledge Distillation</h3>
-          <p class="project-desc">Multi-teacher–student knowledge distillation framework for efficient multi-class tumor classification, achieving 99.4% accuracy while significantly reducing model complexity.</p>
-          <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">OpenCV</span><span class="tag">Medical Imaging</span>
-          </div>
-        </div>
-        <span class="project-arrow">↗</span>
+        <div class="project-row reveal"><span class="project-num">05</span><div class="project-content"><h3 class="project-title">Hybrid Explainable Intrusion Detection System</h3><p class="project-desc">Hybrid explainable IDS using feature intersection and multi-model ensembles for accurate TCP attack detection, with interpretable ML for transparent cybersecurity decisions.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Explainable AI</span><span class="tag">Pandas</span><span class="tag">NumPy</span></div></div><span class="project-arrow">↗</span></div>
+
+        <div class="project-row reveal"><span class="project-num">06</span><div class="project-content"><h3 class="project-title">Hotel FRL — Federated Reinforcement Learning for Dynamic Pricing</h3><p class="project-desc">Production-grade Federated RL system where multiple hotels collaboratively learn optimal dynamic pricing strategies without sharing private guest data, occupancy records, or revenue figures. PPO agents (pure NumPy) trained via FedAvg across up to 8 heterogeneous hotel profiles, with optional differential privacy and a live in-browser React dashboard.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">PPO</span><span class="tag">Federated Learning</span><span class="tag">Reinforcement Learning</span><span class="tag">Differential Privacy</span><span class="tag">React</span></div><a href="https://github.com/GayathreVaidyanathan/hotel-frl-pricing" target="_blank" class="project-link-btn">View on GitHub ↗</a></div><span class="project-arrow">↗</span></div>
       </div>
-
-      <!-- Project 03 -->
-      <div class="project-row reveal">
-        <span class="project-num">03</span>
-        <div class="project-content">
-          <h3 class="project-title">Hybrid Explainable Intrusion Detection System</h3>
-          <p class="project-desc">Hybrid explainable IDS using feature intersection and multi-model ensembles for accurate TCP attack detection, with interpretable ML for transparent cybersecurity decisions.</p>
-          <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Explainable AI</span><span class="tag">Pandas</span><span class="tag">NumPy</span>
-          </div>
-        </div>
-        <span class="project-arrow">↗</span>
-      </div>
-
-      <!-- Project 04 -->
-      <div class="project-row reveal">
-        <span class="project-num">04</span>
-        <div class="project-content">
-          <h3 class="project-title">Alzheimer's Disease Detection via Hybrid Deep Learning Ensembles</h3>
-          <p class="project-desc">Research paper benchmarking hybrid CNN architectures for multi-class Alzheimer's stage classification across four heterogeneous MRI datasets (Kaggle, OASIS, Best Alzheimer, Hugging Face). Compares VGG16/19, ResNet50, DenseNet121, InceptionV3, EfficientNet, ConvNeXt, and hybrid models including Dual VGGNet, VGG19+ViT, and ResNet–DenseNet. Dual VGGNet achieves top accuracy (0.9981 on combined OASIS dataset). Incorporates Grad-CAM and Saliency Map XAI techniques to validate clinically meaningful focus on hippocampal atrophy and ventricular enlargement.</p>
-          <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">OpenCV</span><span class="tag">Grad-CAM</span><span class="tag">ViT</span><span class="tag">Transfer Learning</span><span class="tag">XAI</span><span class="tag">Medical Imaging</span>
-          </div>
-          <span class="project-status-badge">📄 Research Paper — In Progress</span>
-        </div>
-        <span class="project-arrow">↗</span>
-      </div>
-
-      <!-- Project 05 -->
-      <div class="project-row reveal">
-        <span class="project-num">05</span>
-        <div class="project-content">
-          <h3 class="project-title">Bias-Aware Toxicity Detection in Social Networks</h3>
-          <p class="project-desc">Bias-aware NLP pipeline using the Jigsaw Unintended Bias dataset, with a tri-hybrid modeling approach evaluated through bias-sensitive fairness metrics.</p>
-          <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">NLP</span><span class="tag">Deep Learning</span><span class="tag">Scikit-learn</span><span class="tag">Fairness AI</span>
-          </div>
-          <span class="project-status-badge">📄 Research Paper — In Progress</span>
-        </div>
-        <span class="project-arrow">↗</span>
-      </div>
-
-      <!-- Project 06 -->
-      <div class="project-row reveal">
-        <span class="project-num">06</span>
-        <div class="project-content">
-          <h3 class="project-title">Multilingual Hope Speech Detection via Stacked Transformer Ensemble</h3>
-          <p class="project-desc">Research paper proposing a stacked ensemble for cross-lingual hope speech detection, combining BiGRU + GloVe, XLM-RoBERTa, mBERT, and ELECTRA as base estimators with an XGBoost meta-learner. Incorporates back-translation augmentation (English→Czech→English), cross-lingual transfer learning (English→Tamil), and LIME explainability analysis — targeting 92%+ accuracy and 60%+ recall on the HopeEDI benchmark.</p>
-          <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">XLM-RoBERTa</span><span class="tag">mBERT</span><span class="tag">ELECTRA</span><span class="tag">XGBoost</span><span class="tag">LIME</span><span class="tag">NLP</span><span class="tag">Transfer Learning</span>
-          </div>
-          <span class="project-status-badge">📄 Research Paper — In Progress</span>
-        </div>
-        <span class="project-arrow">↗</span>
-      </div>
-
-      <!-- Project 07 -->
-      <div class="project-row reveal">
-        <span class="project-num">07</span>
-        <div class="project-content">
-          <h3 class="project-title">The Dungeon Master Engine</h3>
-          <p class="project-desc">Multi-agent agentic AI fantasy RPG built with Flask and Anthropic Claude. Five specialised agents — World Builder, Rules Keeper, Dungeon Master, NPC Voice, and Story Arc — run in a sequential pipeline where each agent reads all prior outputs before responding, producing deeply coherent real-time narrative via Server-Sent Events.</p>
-          <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Anthropic Claude</span><span class="tag">Multi-Agent AI</span><span class="tag">SSE Streaming</span><span class="tag">SQLite</span><span class="tag">JavaScript</span>
-          </div>
-          <a href="https://github.com/GayathreVaidyanathan/dungeons-and-dragons" target="_blank" class="project-link-btn">View on GitHub ↗</a>
-        </div>
-        <span class="project-arrow">↗</span>
-      </div>
-
-      <!-- Project 08 -->
-      <div class="project-row reveal">
-        <span class="project-num">08</span>
-        <div class="project-content">
-          <h3 class="project-title">Hotel FRL — Federated Reinforcement Learning for Dynamic Pricing</h3>
-          <p class="project-desc">Production-grade Federated RL system where multiple hotels collaboratively learn optimal dynamic pricing strategies without sharing private guest data, occupancy records, or revenue figures. PPO agents (pure NumPy) trained via FedAvg across up to 8 heterogeneous hotel profiles, with optional differential privacy and a live in-browser React dashboard.</p>
-          <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">PPO</span><span class="tag">Federated Learning</span><span class="tag">Reinforcement Learning</span><span class="tag">Differential Privacy</span><span class="tag">React</span>
-          </div>
-          <a href="https://github.com/GayathreVaidyanathan/hotel-frl-pricing" target="_blank" class="project-link-btn">View on GitHub ↗</a>
-        </div>
-        <span class="project-arrow">↗</span>
-      </div>
-
-      <!-- Project 09 -->
-      <div class="project-row reveal">
-        <span class="project-num">09</span>
-        <div class="project-content">
-          <h3 class="project-title">Tamil News Agentic AI</h3>
-          <p class="project-desc">Intelligent news scraping and summarisation system that collects Tamil regional news from multiple sources and delivers automated email digests twice daily. Supports both OpenAI GPT and Anthropic Claude for summarisation, with RSS feed parsing, scheduled delivery, and beautifully formatted HTML emails.</p>
-          <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">Web Scraping</span><span class="tag">Anthropic Claude</span><span class="tag">OpenAI GPT</span><span class="tag">SMTP</span><span class="tag">Scheduler</span><span class="tag">RSS</span><span class="tag">Agentic AI</span>
-          </div>
-          <a href="https://github.com/GayathreVaidyanathan/tamil-news-agentic-ai-public" target="_blank" class="project-link-btn">View on GitHub ↗</a>
-        </div>
-        <span class="project-arrow">↗</span>
-      </div>
-
-      <!-- Project 10 -->
-      <div class="project-row reveal">
-        <span class="project-num">10</span>
-        <div class="project-content">
-          <h3 class="project-title">Telco Customer Churn Prediction Dashboard</h3>
-          <p class="project-desc">End-to-end ML pipeline predicting telecom customer churn with 84%+ ROC-AUC. Trained XGBoost, LightGBM, Random Forest, and ensemble models on SMOTE-balanced data with 12 engineered features. Interactive Streamlit dashboard with real-time SHAP explainability, counterfactual what-if analysis, confidence intervals, ROC curve comparison, and an industry-standard model card.</p>
-          <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">LightGBM</span><span class="tag">SMOTE</span><span class="tag">SHAP</span><span class="tag">Streamlit</span><span class="tag">Explainable AI</span>
-          </div>
-          <a href="https://github.com/GayathreVaidyanathan/telco-churn-prediction" target="_blank" class="project-link-btn">View on GitHub ↗</a>
-          <a href="https://customer-churn-prediction-dt5z6zzhrsf2kjs3ccqgjh.streamlit.app/" target="_blank" class="project-link-btn" style="margin-left: 1.25rem;">Live Demo ↗</a>
-        </div>
-        <span class="project-arrow">↗</span>
-      </div>
-
     </div>
+
+    <!-- ── GROUP 3: Deep Learning & Medical AI ── -->
+    <div class="domain-group">
+      <div class="domain-header reveal">
+        <span class="domain-icon">🧠</span>
+        <h3 class="domain-title">Deep Learning &amp; Medical AI</h3>
+        
+      </div>
+      <div class="projects-list">
+        <div class="project-row reveal"><span class="project-num">07</span><div class="project-content"><h3 class="project-title">Alzheimer's Disease Detection via Hybrid Deep Learning Ensembles</h3><p class="project-desc">Research paper benchmarking hybrid CNN architectures for multi-class Alzheimer's stage classification across four heterogeneous MRI datasets (Kaggle, OASIS, Best Alzheimer, Hugging Face). Compares VGG16/19, ResNet50, DenseNet121, InceptionV3, EfficientNet, ConvNeXt, and hybrid models including Dual VGGNet, VGG19+ViT, and ResNet–DenseNet. Dual VGGNet achieves top accuracy (0.9981 on combined OASIS dataset). Incorporates Grad-CAM and Saliency Map XAI techniques to validate clinically meaningful focus on hippocampal atrophy and ventricular enlargement.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">OpenCV</span><span class="tag">Grad-CAM</span><span class="tag">ViT</span><span class="tag">Transfer Learning</span><span class="tag">XAI</span><span class="tag">Medical Imaging</span></div><span class="project-status-badge">📄 Research Paper — In Progress</span></div><span class="project-arrow">↗</span></div>
+
+        <div class="project-row reveal"><span class="project-num">08</span><div class="project-content"><h3 class="project-title">Multi-Class Tumor Classification via Knowledge Distillation</h3><p class="project-desc">Multi-teacher–student knowledge distillation framework for efficient multi-class tumor classification, achieving 99.4% accuracy while significantly reducing model complexity.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">OpenCV</span><span class="tag">Medical Imaging</span></div></div><span class="project-arrow">↗</span></div>
+      </div>
+    </div>
+
+    <!-- ── GROUP 4: NLP & Fairness ── -->
+    <div class="domain-group">
+      <div class="domain-header reveal">
+        <span class="domain-icon">💬</span>
+        <h3 class="domain-title">NLP &amp; Fairness</h3>
+        
+      </div>
+      <div class="projects-list">
+        <div class="project-row reveal"><span class="project-num">09</span><div class="project-content"><h3 class="project-title">Bias-Aware Toxicity Detection in Social Networks</h3><p class="project-desc">Bias-aware NLP pipeline using the Jigsaw Unintended Bias dataset, with a tri-hybrid modeling approach evaluated through bias-sensitive fairness metrics.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">NLP</span><span class="tag">Deep Learning</span><span class="tag">Scikit-learn</span><span class="tag">Fairness AI</span></div><span class="project-status-badge">📄 Research Paper — In Progress</span></div><span class="project-arrow">↗</span></div>
+
+        <div class="project-row reveal"><span class="project-num">10</span><div class="project-content"><h3 class="project-title">Multilingual Hope Speech Detection via Stacked Transformer Ensemble</h3><p class="project-desc">Research paper proposing a stacked ensemble for cross-lingual hope speech detection, combining BiGRU + GloVe, XLM-RoBERTa, mBERT, and ELECTRA as base estimators with an XGBoost meta-learner. Incorporates back-translation augmentation (English→Czech→English), cross-lingual transfer learning (English→Tamil), and LIME explainability analysis — targeting 92%+ accuracy and 60%+ recall on the HopeEDI benchmark.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">XLM-RoBERTa</span><span class="tag">mBERT</span><span class="tag">ELECTRA</span><span class="tag">XGBoost</span><span class="tag">LIME</span><span class="tag">NLP</span><span class="tag">Transfer Learning</span></div><span class="project-status-badge">📄 Research Paper — In Progress</span></div><span class="project-arrow">↗</span></div>
+      </div>
+    </div>
+
+    <!-- ── GROUP 5: Full-Stack & Cloud ── -->
+    <div class="domain-group">
+      <div class="domain-header reveal">
+        <span class="domain-icon">☁️</span>
+        <h3 class="domain-title">Full-Stack &amp; Cloud</h3>
+        
+      </div>
+      <div class="projects-list">
+        <div class="project-row reveal"><span class="project-num">11</span><div class="project-content"><h3 class="project-title">Cloud-Based Library Management System</h3><p class="project-desc">Full-stack web application for library operations — book borrowing, returns, automated fine calculation, and student management with role-based access control. Deployed on Azure App Service with a real-time admin analytics dashboard.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Azure App Service</span><span class="tag">Azure Blob Storage</span><span class="tag">Azure SQL</span><span class="tag">Flask-Mail</span></div><a href="https://github.com/GayathreVaidyanathan/library-management-system" target="_blank" class="project-link-btn">View on GitHub ↗</a></div><span class="project-arrow">↗</span></div>
+      </div>
+    </div>
+
   </section>
 
   <section id="skills">
-    <div class="section-header reveal">
-      <span class="section-num">03</span>
-      <h2 class="section-title">Skills</h2>
-      <div class="section-line"></div>
-    </div>
+    <div class="section-header reveal"><span class="section-num">03</span><h2 class="section-title">Skills</h2><div class="section-line"></div></div>
     <div class="skills-grid reveal">
-      <div class="skill-group">
-        <p class="skill-group-label">Languages</p>
-        <div class="skill-items">
-          <span class="skill-item">Python</span>
-          <span class="skill-item">R</span>
-          <span class="skill-item">SQL</span>
-          <span class="skill-item">MATLAB</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-label">ML & Data Science</p>
-        <div class="skill-items">
-          <span class="skill-item">Scikit-learn</span>
-          <span class="skill-item">NumPy &amp; Pandas</span>
-          <span class="skill-item">SciPy</span>
-          <span class="skill-item">AutoML</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-label">Deep Learning & NLP</p>
-        <div class="skill-items">
-          <span class="skill-item">PyTorch</span>
-          <span class="skill-item">TensorFlow / Keras</span>
-          <span class="skill-item">Hugging Face</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-label">Web & Cloud</p>
-        <div class="skill-items">
-          <span class="skill-item">Flask</span>
-          <span class="skill-item">Streamlit</span>
-          <span class="skill-item">Azure App Service</span>
-          <span class="skill-item">Azure Blob Storage</span>
-          <span class="skill-item">Azure SQL</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-label">Visualisation</p>
-        <div class="skill-items">
-          <span class="skill-item">Matplotlib</span>
-          <span class="skill-item">Seaborn</span>
-          <span class="skill-item">OpenCV</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-label">Tools</p>
-        <div class="skill-items">
-          <span class="skill-item">Git</span>
-          <span class="skill-item">Jupyter</span>
-          <span class="skill-item">Linux</span>
-        </div>
-      </div>
+      <div class="skill-group"><p class="skill-group-label">Languages</p><div class="skill-items"><span class="skill-item">Python</span><span class="skill-item">R</span><span class="skill-item">SQL</span><span class="skill-item">MATLAB</span></div></div>
+      <div class="skill-group"><p class="skill-group-label">ML & Data Science</p><div class="skill-items"><span class="skill-item">Scikit-learn</span><span class="skill-item">NumPy &amp; Pandas</span><span class="skill-item">SciPy</span><span class="skill-item">AutoML</span></div></div>
+      <div class="skill-group"><p class="skill-group-label">Deep Learning & NLP</p><div class="skill-items"><span class="skill-item">PyTorch</span><span class="skill-item">TensorFlow / Keras</span><span class="skill-item">Hugging Face</span></div></div>
+      <div class="skill-group"><p class="skill-group-label">Web & Cloud</p><div class="skill-items"><span class="skill-item">Flask</span><span class="skill-item">Streamlit</span><span class="skill-item">Azure App Service</span><span class="skill-item">Azure Blob Storage</span><span class="skill-item">Azure SQL</span></div></div>
+      <div class="skill-group"><p class="skill-group-label">AI & LLM</p><div class="skill-items"><span class="skill-item">RAG Pipelines</span><span class="skill-item">LLaMA / Groq</span><span class="skill-item">ChromaDB</span><span class="skill-item">Sentence Transformers</span><span class="skill-item">Prompt Engineering</span></div></div>
+      <div class="skill-group"><p class="skill-group-label">Visualisation</p><div class="skill-items"><span class="skill-item">Matplotlib</span><span class="skill-item">Seaborn</span><span class="skill-item">OpenCV</span></div></div>
+      <div class="skill-group"><p class="skill-group-label">Tools</p><div class="skill-items"><span class="skill-item">Git</span><span class="skill-item">Jupyter</span><span class="skill-item">Linux</span></div></div>
     </div>
   </section>
 
   <section id="certifications">
-    <div class="section-header reveal">
-      <span class="section-num">04</span>
-      <h2 class="section-title">Certifications</h2>
-      <div class="section-line"></div>
-    </div>
+    <div class="section-header reveal"><span class="section-num">04</span><h2 class="section-title">Certifications</h2><div class="section-line"></div></div>
     <div class="cert-card reveal">
-      <div>
-        <h3 class="cert-name">Google Data Analytics Professional Certificate</h3>
-        <p class="cert-issuer">Coursera — Data cleaning, EDA, SQL, statistical analysis &amp; visualisation</p>
-      </div>
+      <div><h3 class="cert-name">Google Data Analytics Professional Certificate</h3><p class="cert-issuer">Coursera — Data cleaning, EDA, SQL, statistical analysis &amp; visualisation</p></div>
       <span class="cert-year">2024</span>
     </div>
   </section>
@@ -591,23 +256,14 @@
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 50); });
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 60);
-          observer.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 60); observer.unobserve(entry.target); }
       });
     }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
-
     document.querySelectorAll('.reveal').forEach(el => {
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight) {
-        el.classList.add('visible');
-      } else {
-        observer.observe(el);
-      }
+      if (rect.top < window.innerHeight) { el.classList.add('visible'); } else { observer.observe(el); }
     });
   </script>
 </body>
