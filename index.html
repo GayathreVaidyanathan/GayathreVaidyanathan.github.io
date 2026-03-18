@@ -11,6 +11,7 @@
       --border: #d9cfc4; --border2: #c4b9aa; --navy: #1c2b4a; --navy2: #253660;
       --accent: #8b5e3c; --accent2: #c4874a; --teal: #2e6b7a;
       --text: #1c2b4a; --muted: #6b7280; --dim: #9ca3af;
+      --green: #2d7a4f; --green-bg: rgba(45,122,79,0.10); --green-border: rgba(45,122,79,0.35);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -53,6 +54,22 @@
     .edu-detail-label { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); }
     .edu-detail-value { font-size: 0.95rem; color: var(--text); font-weight: 500; }
     .edu-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.5rem 1.2rem; background: var(--teal); color: white; }
+
+    /* ── Research section ── */
+    .research-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .research-card { background: var(--surface2); border: 1px solid var(--border); border-left: 4px solid var(--navy); padding: 2rem 2.5rem; transition: box-shadow 0.3s; }
+    .research-card:hover { box-shadow: 0 8px 30px rgba(28,43,74,0.1); }
+    .research-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+    .research-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 700; color: var(--navy); }
+    .research-venue { font-size: 0.88rem; color: var(--muted); font-weight: 300; margin-bottom: 1rem; font-style: italic; }
+    .research-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.8rem; }
+    .badge-accepted { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 1rem; background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); white-space: nowrap; }
+    .badge-accepted::before { content: '✓'; font-weight: 700; }
+    .badge-pending { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 1rem; background: rgba(196,135,74,0.1); color: var(--accent2); border: 1px solid rgba(196,135,74,0.35); white-space: nowrap; }
+    .badge-under-review { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 1rem; background: rgba(46,107,122,0.08); color: var(--teal); border: 1px solid rgba(46,107,122,0.3); white-space: nowrap; }
+    .research-bullets { margin-top: 0.75rem; padding-left: 1.1rem; display: flex; flex-direction: column; gap: 0.45rem; }
+    .research-bullets li { font-size: 0.9rem; color: var(--muted); font-weight: 300; line-height: 1.7; }
+
     .domain-group { margin-bottom: 4rem; }
     .domain-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; padding-bottom: 1rem; border-bottom: 2px solid var(--border); }
     .domain-icon { font-size: 1.1rem; }
@@ -100,6 +117,7 @@
       .edu-card { grid-template-columns: 1fr; padding: 2rem; }
       .project-row { grid-template-columns: 40px 1fr; } .project-arrow { display: none; }
       .cert-card { padding: 2rem; } .hero-dots { display: none; }
+      .research-card-header { flex-direction: column; gap: 0.75rem; }
     }
   </style>
 </head>
@@ -108,6 +126,7 @@
     <div class="nav-logo">G<span>.</span>V</div>
     <ul class="nav-links">
       <li><a href="#education">Education</a></li>
+      <li><a href="#research">Research</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#certifications">Certifications</a></li>
@@ -118,11 +137,11 @@
     <div class="hero-bg-shape"></div><div class="hero-bg-shape2"></div>
     <div class="hero-dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
     <div class="hero-content">
-      <p class="hero-label">Data Science &amp; AI</p>
+      <p class="hero-label">Data Science &amp; AI · Published Researcher</p>
       <h1 class="hero-name">Gayathre<br><em>Vaidyanathan</em></h1>
-      <p class="hero-bio">Building intelligent systems at the intersection of machine learning, deep learning, and explainable AI. Transforming complex data into clarity.</p>
+      <p class="hero-bio">Building intelligent systems at the intersection of machine learning, deep learning, and explainable AI. Transforming complex data into clarity. Conference-accepted researcher in NLP and fairness.</p>
       <div class="hero-actions">
-        <a href="./changed%20Resume.pdf" class="btn-primary" download="changed Resume.pdf">
+        <a href="./changed%20Resume.pdf" class="btn-primary" download="Gayathre_V_Resume.pdf">
           <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           Download CV
         </a>
@@ -147,8 +166,53 @@
     </div>
   </section>
 
+  <!-- ══════════ RESEARCH ══════════ -->
+  <section id="research">
+    <div class="section-header reveal"><span class="section-num">02</span><h2 class="section-title">Research &amp; Publications</h2><div class="section-line"></div></div>
+    <div class="research-list">
+
+      <!-- Paper 1 — ACCEPTED -->
+      <div class="research-card reveal">
+        <div class="research-card-header">
+          <h3 class="research-title">Bias-Aware Toxicity Detection in Social Networks</h3>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <span class="badge-accepted">Accepted</span>
+            <span class="badge-pending">Pending Presentation</span>
+          </div>
+        </div>
+        <p class="research-venue">International Conference on Signal, Systems and Computing for Next-Gen Automation (ICSSCA)</p>
+        <div class="research-tags">
+          <span class="tag">Python</span><span class="tag">NLP</span><span class="tag">Deep Learning</span><span class="tag">Scikit-learn</span><span class="tag">Fairness AI</span><span class="tag">Transformer Models</span><span class="tag">Jigsaw Dataset</span>
+        </div>
+        <ul class="research-bullets">
+          <li>Developed a bias-aware NLP pipeline using the Jigsaw Unintended Bias in Toxicity Classification dataset, applying a tri-hybrid modelling approach combining traditional ML, deep learning, and transformer-based models.</li>
+          <li>Evaluated through bias-sensitive fairness metrics to demonstrate improved equitable detection across demographic identity groups including race, gender, and religion.</li>
+          <li>Designed to reduce false positive rates on identity-mentioning text — a core challenge in production-grade content moderation systems.</li>
+        </ul>
+      </div>
+
+      <!-- Paper 2 — UNDER REVIEW -->
+      <div class="research-card reveal" style="border-left-color: var(--teal);">
+        <div class="research-card-header">
+          <h3 class="research-title">Alzheimer's Disease Classification via Hybrid Deep Learning Ensembles</h3>
+          <span class="badge-under-review">Under Review</span>
+        </div>
+        <p class="research-venue">Journal submission — pending review</p>
+        <div class="research-tags">
+          <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">PyTorch</span><span class="tag">Hugging Face</span><span class="tag">OpenCV</span><span class="tag">Grad-CAM</span><span class="tag">Vision Transformer</span>
+        </div>
+        <ul class="research-bullets">
+          <li>Achieved 99.81% classification accuracy on the OASIS MRI dataset using a Dual VGGNet ensemble, benchmarked against 8 architectures including ResNet50, EfficientNet, and VGG19+ViT across 4 heterogeneous datasets.</li>
+          <li>Validated clinical relevance via Grad-CAM and Saliency Maps, confirming model attention on hippocampal atrophy and ventricular enlargement — primary neurological markers of Alzheimer's progression.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════ PROJECTS ══════════ -->
   <section id="projects">
-    <div class="section-header reveal"><span class="section-num">02</span><h2 class="section-title">Projects</h2><div class="section-line"></div></div>
+    <div class="section-header reveal"><span class="section-num">03</span><h2 class="section-title">Projects</h2><div class="section-line"></div></div>
 
     <!-- ── GROUP 1: Agentic & LLM Systems ── -->
     <div class="domain-group">
@@ -159,7 +223,7 @@
       <div class="projects-list">
         <div class="project-row reveal"><span class="project-num">01</span><div class="project-content"><h3 class="project-title">RepoMind — AI-Powered Code Intelligence</h3><p class="project-desc">Point at any public GitHub repository and instantly chat with it in plain English, detect bugs and security vulnerabilities, map file dependencies via AST analysis, and auto-generate professional documentation. Built on a full RAG pipeline — semantic chunking, local embeddings (all-MiniLM-L6-v2), ChromaDB vector store, and LLaMA 3.3 70B via Groq for zero-cost inference.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">RAG</span><span class="tag">LLaMA 3.3 70B</span><span class="tag">ChromaDB</span><span class="tag">Groq</span><span class="tag">Sentence Transformers</span><span class="tag">AST Analysis</span><span class="tag">Streamlit</span><span class="tag">GitPython</span></div><a href="https://github.com/GayathreVaidyanathan/repo-mind" target="_blank" class="project-link-btn">View on GitHub ↗</a><a href="https://repo-mind-ffmulxnegnpmtmr9f4tqtb.streamlit.app/" target="_blank" class="project-link-btn" style="margin-left:1.25rem;">Live Demo ↗</a></div><span class="project-arrow">↗</span></div>
 
-        <div class="project-row reveal"><span class="project-num">02</span><div class="project-content"><h3 class="project-title">LegalLens — AI Contract Intelligence System</h3><p class="project-desc">Upload any contract — NDA, employment agreement, SaaS, lease — and get instant AI-powered analysis via a 4-agent RAG pipeline. The Clause Extractor identifies 10 clause types using semantic search over ChromaDB; the Risk Scorer flags HIGH/MEDIUM/LOW risks with specific concern flags; the Obligation Tracker maps per-party duties; and the Summariser produces plain-English overviews with key facts — all powered by LLaMA 3.3 70B via Groq.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">RAG</span><span class="tag">LLaMA 3.3 70B</span><span class="tag">ChromaDB</span><span class="tag">Groq</span><span class="tag">Sentence Transformers</span><span class="tag">LangChain</span><span class="tag">Multi-Agent AI</span><span class="tag">Streamlit</span><span class="tag">pypdf</span></div><a href="https://github.com/GayathreVaidyanathan/legallens" target="_blank" class="project-link-btn">View on GitHub ↗</a><a href="https://legallens-cr2qsmqftkdhyvbxkxux7w.streamlit.app/" target="_blank" class="project-link-btn" style="margin-left:1.25rem;">Live Demo ↗</a></div><span class="project-arrow">↗</span></div>
+        <div class="project-row reveal"><span class="project-num">02</span><div class="project-content"><h3 class="project-title">LegalLens — AI Contract Intelligence System</h3><p class="project-desc">Upload any contract — NDA, employment agreement, SaaS, lease — and get instant AI-powered analysis via a 4-agent RAG pipeline. The Clause Extractor identifies 10 clause types using semantic search over ChromaDB; the Risk Scorer flags HIGH/MEDIUM/LOW risks; the Obligation Tracker maps per-party duties; and the Summariser produces plain-English overviews — all powered by LLaMA 3.3 70B via Groq.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">RAG</span><span class="tag">LLaMA 3.3 70B</span><span class="tag">ChromaDB</span><span class="tag">Groq</span><span class="tag">Sentence Transformers</span><span class="tag">LangChain</span><span class="tag">Multi-Agent AI</span><span class="tag">Streamlit</span><span class="tag">pypdf</span></div><a href="https://github.com/GayathreVaidyanathan/legallens" target="_blank" class="project-link-btn">View on GitHub ↗</a><a href="https://legallens-cr2qsmqftkdhyvbxkxux7w.streamlit.app/" target="_blank" class="project-link-btn" style="margin-left:1.25rem;">Live Demo ↗</a></div><span class="project-arrow">↗</span></div>
 
         <div class="project-row reveal"><span class="project-num">03</span><div class="project-content"><h3 class="project-title">Tamil News Agentic AI</h3><p class="project-desc">Intelligent news scraping and summarisation system that collects Tamil regional news from multiple sources and delivers automated email digests twice daily. Powered by Groq (LLaMA 3.3 70B) for summarisation, with RSS feed parsing, scheduled delivery, and beautifully formatted HTML emails.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">Web Scraping</span><span class="tag">Groq</span><span class="tag">LLaMA 3.3 70B</span><span class="tag">SMTP</span><span class="tag">Scheduler</span><span class="tag">RSS</span><span class="tag">Agentic AI</span></div><a href="https://github.com/GayathreVaidyanathan/tamil-news-agentic-ai-public" target="_blank" class="project-link-btn">View on GitHub ↗</a></div><span class="project-arrow">↗</span></div>
 
@@ -189,7 +253,7 @@
         <h3 class="domain-title">Deep Learning &amp; Medical AI</h3>
       </div>
       <div class="projects-list">
-        <div class="project-row reveal"><span class="project-num">08</span><div class="project-content"><h3 class="project-title">Alzheimer's Disease Detection via Hybrid Deep Learning Ensembles</h3><p class="project-desc">Research paper benchmarking hybrid CNN architectures for multi-class Alzheimer's stage classification across four heterogeneous MRI datasets (Kaggle, OASIS, Best Alzheimer, Hugging Face). Compares VGG16/19, ResNet50, DenseNet121, InceptionV3, EfficientNet, ConvNeXt, and hybrid models including Dual VGGNet, VGG19+ViT, and ResNet–DenseNet. Dual VGGNet achieves top accuracy (0.9981 on combined OASIS dataset). Incorporates Grad-CAM and Saliency Map XAI techniques to validate clinically meaningful focus on hippocampal atrophy and ventricular enlargement.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">OpenCV</span><span class="tag">Grad-CAM</span><span class="tag">ViT</span><span class="tag">Transfer Learning</span><span class="tag">XAI</span><span class="tag">Medical Imaging</span></div><span class="project-status-badge">📄 Research Paper — In Progress</span></div><span class="project-arrow">↗</span></div>
+        <div class="project-row reveal"><span class="project-num">08</span><div class="project-content"><h3 class="project-title">Alzheimer's Disease Detection via Hybrid Deep Learning Ensembles</h3><p class="project-desc">Research paper benchmarking hybrid CNN architectures for multi-class Alzheimer's stage classification across four heterogeneous MRI datasets. Dual VGGNet achieves top accuracy (99.81% on combined OASIS dataset). Incorporates Grad-CAM and Saliency Map XAI techniques to validate clinically meaningful focus on hippocampal atrophy and ventricular enlargement.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">OpenCV</span><span class="tag">Grad-CAM</span><span class="tag">ViT</span><span class="tag">Transfer Learning</span><span class="tag">XAI</span><span class="tag">Medical Imaging</span></div><span class="project-status-badge">📄 Under Review</span></div><span class="project-arrow">↗</span></div>
 
         <div class="project-row reveal"><span class="project-num">09</span><div class="project-content"><h3 class="project-title">Multi-Class Tumor Classification via Knowledge Distillation</h3><p class="project-desc">Multi-teacher–student knowledge distillation framework for efficient multi-class tumor classification, achieving 99.4% accuracy while significantly reducing model complexity.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">OpenCV</span><span class="tag">Medical Imaging</span></div></div><span class="project-arrow">↗</span></div>
       </div>
@@ -202,9 +266,15 @@
         <h3 class="domain-title">NLP &amp; Fairness</h3>
       </div>
       <div class="projects-list">
-        <div class="project-row reveal"><span class="project-num">10</span><div class="project-content"><h3 class="project-title">Bias-Aware Toxicity Detection in Social Networks</h3><p class="project-desc">Bias-aware NLP pipeline using the Jigsaw Unintended Bias dataset, with a tri-hybrid modeling approach evaluated through bias-sensitive fairness metrics.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">NLP</span><span class="tag">Deep Learning</span><span class="tag">Scikit-learn</span><span class="tag">Fairness AI</span></div><span class="project-status-badge">📄 Research Paper — In Progress</span></div><span class="project-arrow">↗</span></div>
+        <!-- Project 10 — ACCEPTED CONFERENCE PAPER -->
+        <div class="project-row reveal"><span class="project-num">10</span><div class="project-content"><h3 class="project-title">Bias-Aware Toxicity Detection in Social Networks</h3><p class="project-desc">Bias-aware NLP pipeline using the Jigsaw Unintended Bias dataset, with a tri-hybrid modeling approach evaluated through bias-sensitive fairness metrics across demographic identity groups. Accepted for presentation at ICSSCA.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">NLP</span><span class="tag">Deep Learning</span><span class="tag">Scikit-learn</span><span class="tag">Fairness AI</span><span class="tag">Transformer Models</span></div>
+          <div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:0.75rem;">
+            <span class="badge-accepted" style="font-size:0.65rem;padding:0.35rem 0.9rem;">Conference Accepted · ICSSCA</span>
+            <span class="badge-pending" style="font-size:0.65rem;padding:0.35rem 0.9rem;">Pending Presentation</span>
+          </div>
+        </div><span class="project-arrow">↗</span></div>
 
-        <div class="project-row reveal"><span class="project-num">11</span><div class="project-content"><h3 class="project-title">Multilingual Hope Speech Detection via Stacked Transformer Ensemble</h3><p class="project-desc">Research paper proposing a stacked ensemble for cross-lingual hope speech detection, combining BiGRU + GloVe, XLM-RoBERTa, mBERT, and ELECTRA as base estimators with an XGBoost meta-learner. Incorporates back-translation augmentation (English→Czech→English), cross-lingual transfer learning (English→Tamil), and LIME explainability analysis — targeting 92%+ accuracy and 60%+ recall on the HopeEDI benchmark.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">XLM-RoBERTa</span><span class="tag">mBERT</span><span class="tag">ELECTRA</span><span class="tag">XGBoost</span><span class="tag">LIME</span><span class="tag">NLP</span><span class="tag">Transfer Learning</span></div><span class="project-status-badge">📄 Research Paper — In Progress</span></div><span class="project-arrow">↗</span></div>
+        <div class="project-row reveal"><span class="project-num">11</span><div class="project-content"><h3 class="project-title">Multilingual Hope Speech Detection via Stacked Transformer Ensemble</h3><p class="project-desc">Research paper proposing a stacked ensemble for cross-lingual hope speech detection, combining BiGRU + GloVe, XLM-RoBERTa, mBERT, and ELECTRA as base estimators with an XGBoost meta-learner. Incorporates back-translation augmentation and cross-lingual transfer learning (English→Tamil).</p><div class="project-tags"><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">XLM-RoBERTa</span><span class="tag">mBERT</span><span class="tag">ELECTRA</span><span class="tag">XGBoost</span><span class="tag">LIME</span><span class="tag">NLP</span><span class="tag">Transfer Learning</span></div><span class="project-status-badge">📄 Research Paper — In Progress</span></div><span class="project-arrow">↗</span></div>
       </div>
     </div>
 
@@ -215,9 +285,9 @@
         <h3 class="domain-title">Finance &amp; Time Series</h3>
       </div>
       <div class="projects-list">
-        <div class="project-row reveal"><span class="project-num">12</span><div class="project-content"><h3 class="project-title">StockSense — AI-Powered Stock Anomaly Detection</h3><p class="project-desc">Institutional-grade anomaly detection dashboard for any stock ticker. Runs Isolation Forest and LSTM Autoencoder in parallel to flag statistically unusual trading days, with SHAP explainability explaining why each anomaly was detected and MLflow tracking every experiment run. Built with a FastAPI backend and a React frontend featuring TradingView-style OHLC candlestick charts with real-time anomaly markers.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">PyTorch</span><span class="tag">Isolation Forest</span><span class="tag">LSTM Autoencoder</span><span class="tag">SHAP</span><span class="tag">MLflow</span><span class="tag">yfinance</span><span class="tag">lightweight-charts</span></div><a href="https://github.com/GayathreVaidyanathan/stock-sense" target="_blank" class="project-link-btn">View on GitHub ↗</a></div><span class="project-arrow">↗</span></div>
+        <div class="project-row reveal"><span class="project-num">12</span><div class="project-content"><h3 class="project-title">StockSense — AI-Powered Stock Anomaly Detection</h3><p class="project-desc">Institutional-grade anomaly detection dashboard for any stock ticker. Runs Isolation Forest and LSTM Autoencoder in parallel to flag statistically unusual trading days, with SHAP explainability and MLflow experiment tracking. Built with a FastAPI backend and a React frontend featuring TradingView-style OHLC candlestick charts.</p><div class="project-tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">PyTorch</span><span class="tag">Isolation Forest</span><span class="tag">LSTM Autoencoder</span><span class="tag">SHAP</span><span class="tag">MLflow</span><span class="tag">yfinance</span><span class="tag">lightweight-charts</span></div><a href="https://github.com/GayathreVaidyanathan/stock-sense" target="_blank" class="project-link-btn">View on GitHub ↗</a></div><span class="project-arrow">↗</span></div>
 
-        <div class="project-row reveal"><span class="project-num">13</span><div class="project-content"><h3 class="project-title">Optix 📐 — Options Strategy Payoff Visualizer &amp; Risk Engine</h3><p class="project-desc">Quantitative finance platform for building and analysing complex multi-leg options strategies — iron condor, straddle, butterfly, covered call, and more. Computes live P&amp;L surfaces, breakeven points, and full Greeks dashboards (delta, gamma, theta, vega) using Black-Scholes pricing. Animated theta decay curves show how time erosion eats strategy value day by day. Real-time Greeks streaming via WebSockets, Redis caching for instant repeated lookups, and Docker Compose deployment packaging frontend, backend, and cache together.</p><div class="project-tags"><span class="tag">Next.js 14</span><span class="tag">Tailwind CSS</span><span class="tag">shadcn/ui</span><span class="tag">D3.js</span><span class="tag">Zustand</span><span class="tag">FastAPI</span><span class="tag">WebSockets</span><span class="tag">Redis</span><span class="tag">Black-Scholes</span><span class="tag">Docker Compose</span><span class="tag">Greeks</span></div><a href="https://github.com/GayathreVaidyanathan/Options-Lab" target="_blank" class="project-link-btn">View on GitHub ↗</a></div><span class="project-arrow">↗</span></div>
+        <div class="project-row reveal"><span class="project-num">13</span><div class="project-content"><h3 class="project-title">Optix 📐 — Options Strategy Payoff Visualizer &amp; Risk Engine</h3><p class="project-desc">Quantitative finance platform for building and analysing complex multi-leg options strategies. Computes live P&amp;L surfaces, breakeven points, and full Greeks dashboards using Black-Scholes pricing. Animated theta decay curves, WebSocket streaming, Redis caching, and Docker Compose deployment.</p><div class="project-tags"><span class="tag">Next.js 14</span><span class="tag">Tailwind CSS</span><span class="tag">shadcn/ui</span><span class="tag">D3.js</span><span class="tag">Zustand</span><span class="tag">FastAPI</span><span class="tag">WebSockets</span><span class="tag">Redis</span><span class="tag">Black-Scholes</span><span class="tag">Docker Compose</span></div><a href="https://github.com/GayathreVaidyanathan/Options-Lab" target="_blank" class="project-link-btn">View on GitHub ↗</a></div><span class="project-arrow">↗</span></div>
       </div>
     </div>
 
@@ -235,22 +305,23 @@
   </section>
 
   <section id="skills">
-    <div class="section-header reveal"><span class="section-num">03</span><h2 class="section-title">Skills</h2><div class="section-line"></div></div>
+    <div class="section-header reveal"><span class="section-num">04</span><h2 class="section-title">Skills</h2><div class="section-line"></div></div>
     <div class="skills-grid reveal">
       <div class="skill-group"><p class="skill-group-label">Languages</p><div class="skill-items"><span class="skill-item">Python</span><span class="skill-item">R</span><span class="skill-item">SQL</span><span class="skill-item">MATLAB</span></div></div>
       <div class="skill-group"><p class="skill-group-label">ML & Data Science</p><div class="skill-items"><span class="skill-item">Scikit-learn</span><span class="skill-item">NumPy &amp; Pandas</span><span class="skill-item">SciPy</span><span class="skill-item">AutoML</span></div></div>
-      <div class="skill-group"><p class="skill-group-label">Deep Learning & NLP</p><div class="skill-items"><span class="skill-item">PyTorch</span><span class="skill-item">TensorFlow / Keras</span><span class="skill-item">Hugging Face</span></div></div>
-      <div class="skill-group"><p class="skill-group-label">Web & Cloud</p><div class="skill-items"><span class="skill-item">Flask</span><span class="skill-item">FastAPI</span><span class="skill-item">React</span><span class="skill-item">Next.js</span><span class="skill-item">Streamlit</span><span class="skill-item">Azure App Service</span><span class="skill-item">Azure Blob Storage</span><span class="skill-item">Azure SQL</span></div></div>
-      <div class="skill-group"><p class="skill-group-label">AI & LLM</p><div class="skill-items"><span class="skill-item">RAG Pipelines</span><span class="skill-item">LLaMA / Groq</span><span class="skill-item">ChromaDB</span><span class="skill-item">Sentence Transformers</span><span class="skill-item">Prompt Engineering</span><span class="skill-item">LangChain</span></div></div>
-      <div class="skill-group"><p class="skill-group-label">Visualisation</p><div class="skill-items"><span class="skill-item">Matplotlib</span><span class="skill-item">Seaborn</span><span class="skill-item">Plotly</span><span class="skill-item">D3.js</span><span class="skill-item">OpenCV</span></div></div>
-      <div class="skill-group"><p class="skill-group-label">Tools & MLOps</p><div class="skill-items"><span class="skill-item">Git</span><span class="skill-item">MLflow</span><span class="skill-item">Docker</span><span class="skill-item">Redis</span><span class="skill-item">WebSockets</span><span class="skill-item">Jupyter</span><span class="skill-item">Linux</span></div></div>
+      <div class="skill-group"><p class="skill-group-label">Deep Learning & NLP</p><div class="skill-items"><span class="skill-item">PyTorch</span><span class="skill-item">TensorFlow / Keras</span><span class="skill-item">Hugging Face</span><span class="skill-item">XLM-RoBERTa / mBERT</span></div></div>
+      <div class="skill-group"><p class="skill-group-label">Web & Cloud</p><div class="skill-items"><span class="skill-item">Flask / FastAPI</span><span class="skill-item">React / Next.js</span><span class="skill-item">Streamlit</span><span class="skill-item">Azure App Service</span><span class="skill-item">Azure Blob &amp; SQL</span></div></div>
+      <div class="skill-group"><p class="skill-group-label">AI & LLM</p><div class="skill-items"><span class="skill-item">RAG Pipelines</span><span class="skill-item">LLaMA / Groq / Claude</span><span class="skill-item">ChromaDB</span><span class="skill-item">Sentence Transformers</span><span class="skill-item">LangChain / LangGraph</span></div></div>
+      <div class="skill-group"><p class="skill-group-label">Explainability</p><div class="skill-items"><span class="skill-item">SHAP</span><span class="skill-item">Grad-CAM</span><span class="skill-item">LIME</span><span class="skill-item">Saliency Maps</span></div></div>
+      <div class="skill-group"><p class="skill-group-label">Visualisation</p><div class="skill-items"><span class="skill-item">Matplotlib / Seaborn</span><span class="skill-item">Plotly</span><span class="skill-item">D3.js</span><span class="skill-item">OpenCV</span></div></div>
+      <div class="skill-group"><p class="skill-group-label">Tools & MLOps</p><div class="skill-items"><span class="skill-item">Git</span><span class="skill-item">MLflow</span><span class="skill-item">Docker / Compose</span><span class="skill-item">Redis</span><span class="skill-item">WebSockets / SSE</span></div></div>
     </div>
   </section>
 
   <section id="certifications">
-    <div class="section-header reveal"><span class="section-num">04</span><h2 class="section-title">Certifications</h2><div class="section-line"></div></div>
+    <div class="section-header reveal"><span class="section-num">05</span><h2 class="section-title">Certifications</h2><div class="section-line"></div></div>
     <div class="cert-card reveal">
-      <div><h3 class="cert-name">Google Data Analytics Professional Certificate</h3><p class="cert-issuer">Coursera — Data cleaning, EDA, SQL, statistical analysis &amp; visualisation</p></div>
+      <div><h3 class="cert-name">Google Data Analytics Professional Certificate</h3><p class="cert-issuer">Coursera — Data cleaning, EDA, SQL, statistical analysis &amp; visualisation (8-course series)</p></div>
       <span class="cert-year">2024</span>
     </div>
   </section>
